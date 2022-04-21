@@ -57,5 +57,5 @@ function game() {
 
 
 // Play the game. 5 rounds.
-game();
+//game();
 
