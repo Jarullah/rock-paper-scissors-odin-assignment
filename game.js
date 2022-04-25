@@ -1,4 +1,4 @@
-let playerWins = 0, computerWins = 0, ties = 0;
+let playerWins = 0, computerWins = 0, ties = 0, round = 0;
 
 function computerPlay() {
     let options = ['Rock', 'Paper', 'Scissors'];
@@ -6,6 +6,7 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    round++
     let result = 'Invalid input! Try again';
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
@@ -56,18 +57,29 @@ function game() {
 }
 
 function play(e){
-    let roundResult = document.createElement('p');
-    let scoreBoard = document.querySelector('.scoreboard');
+    e.stopPropagation();
+    let roundResult = document.querySelector('div.round-result');
     let playerChoice = this.id;
     let computerChoice = computerPlay();
     let result = playRound(playerChoice,computerChoice);
+
+
+    roundResult.classList.add('displayed-result');
     roundResult.innerText = result;
-    scoreBoard.appendChild(roundResult);
+
 }
 
 
 let buttons = document.querySelectorAll('button.choices');
 buttons.forEach(button => button.addEventListener('click', play));
+let roundResult = document.querySelector('div.round-result');
+function removeTransition(e){
+    if(e.propertyName !== 'transform') return;
+    this.classList.remove('displayed-result');
+}
+roundResult.addEventListener('transitionend', removeTransition );
+// document.querySelector('div.round-result').
+
 
 // TODO: add event listner to buttons.
 // Play the game. 5 rounds.

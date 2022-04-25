@@ -1,7 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+
+body {
+    background-color: #283747;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    border-radius: 5%;
+    /* width: 200px;
+    height: 200px; */
+}
+
+img {
+    width: 200px;
+    height: 200px;
+}
+
+p {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    margin: 0;
+}
+
 .gameboard {
+    font-family: 'Raleway', sans-serif;
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 32px;
+    flex-wrap: wrap;
 }
+
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    gap: 48px;
+    flex-wrap: wrap;
+}
+
+.game {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+
+
+
+.round-result {
+    width: auto;
+    color: #90ee90;
+    font-size: 16px;
+    transition: transform 0.7s ease;
+}
+
+.displayed-result {
+    transform: scale(1.5);
+    width: auto;
+}
+
