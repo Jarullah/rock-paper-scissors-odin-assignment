@@ -59,13 +59,29 @@ function game() {
 function play(e){
     e.stopPropagation();
     let roundResult = document.querySelector('div.round-result');
+    let pWins = document.querySelector('div.player');
+    let cWins = document.querySelector('div.computer');
+    let tie = document.querySelector('div.tie');
+    let winner = document.querySelector('div.winner');
     let playerChoice = this.id;
     let computerChoice = computerPlay();
     let result = playRound(playerChoice,computerChoice);
 
-
+    pWins.innerText = `Player : ${playerWins}`;
+    cWins.innerText = `Computer : ${computerWins}`;
+    tie.innerText = `Ties : ${ties}`;
     roundResult.classList.add('displayed-result');
     roundResult.innerText = result;
+
+    if(playerWins < 5 || computerWins < 5) winner.innerText = 'Winner: ';
+
+    if(playerWins == 5 || computerWins == 5){
+        winner.innerText = `Winner : ${playerWins > computerWins? 'Player': 'Computer'}`;
+        playerWins = 0;
+        computerWins = 0;
+        ties = 0;
+        round = 0;
+    } 
 
 }
 

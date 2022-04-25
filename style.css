@@ -45,6 +45,10 @@ p {
     flex-wrap: wrap;
 }
 
+.scoreboard>div {
+    width: 150px;
+}
+
 .game {
     display: flex;
     justify-content: space-between;
