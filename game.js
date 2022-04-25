@@ -55,7 +55,21 @@ function game() {
     console.log(final_result);
 }
 
+function play(e){
+    let roundResult = document.createElement('p');
+    let scoreBoard = document.querySelector('.scoreboard');
+    let playerChoice = this.id;
+    let computerChoice = computerPlay();
+    let result = playRound(playerChoice,computerChoice);
+    roundResult.innerText = result;
+    scoreBoard.appendChild(roundResult);
+}
 
+
+let buttons = document.querySelectorAll('button.choices');
+buttons.forEach(button => button.addEventListener('click', play));
+
+// TODO: add event listner to buttons.
 // Play the game. 5 rounds.
 //game();
 
